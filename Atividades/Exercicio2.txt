@@ -1,0 +1,16 @@
+1. Realizar uma pesquisa sobre jogos multiplayer escolhendo um jogo para elaborar uma ficha técnica contendo as seguintes informações.
+
+a) Nome do jogo
+    Borderlands 3
+
+b) Classificação: Local ou Online
+    Online, podendo ser jogado localmente caso desejado.
+
+c) Arquitetura: Cliente-Servidor ou Ponto-a-Ponto
+    Ponto-a-Ponto.
+
+d) Quantidade de jogadores por sessão.
+    1 a 4.
+
+e) Problemas comuns do jogo.
+    Aparentemente existem problemas de conectividade entre os jogadores. Alguns tambem relataram problemas para encontrar os seus amigos para jogar. Do mais, os maiores problemas atuais do jogo sao otimizacoes de software.
