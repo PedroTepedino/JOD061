@@ -1,0 +1,169 @@
+1. Verificar o endereçamento de um host.
+
+a) Abra o Prompt de Comando no Windows.
+
+b) Execute o comando ipconfig. Quais os endereços IPs da sua estação, da máscara de rede e do gateway padrão?
+
+    Link-local IPv6 Address . . . . . : fe80::19d8:a60f:a63:7a1e%10
+    IPv4 Address. . . . . . . . . . . : 192.168.86.36
+    Subnet Mask . . . . . . . . . . . : 255.255.255.0
+    Default Gateway . . . . . . . . . : 192.168.86.1
+
+
+c)  Calcule os endereços de rede IPv4 a partir do seu endereço IP da máscara de rede.
+
+    192.168.86.0/24
+
+
+d) Execute o comando ipconfig/all. Quais as informações foram apresentadas a mais?
+    
+    Wireless LAN adapter Wi-Fi:
+
+    Connection-specific DNS Suffix  . : lan
+    Description . . . . . . . . . . . : Intel(R) Wireless-AC 9560 160MHz
+    Physical Address. . . . . . . . . : 00-24-D6-FA-B0-B8
+    DHCP Enabled. . . . . . . . . . . : Yes
+    Autoconfiguration Enabled . . . . : Yes
+    Link-local IPv6 Address . . . . . : fe80::19d8:a60f:a63:7a1e%10(Preferred)
+    IPv4 Address. . . . . . . . . . . : 192.168.86.36(Preferred)
+    Subnet Mask . . . . . . . . . . . : 255.255.255.0
+    Lease Obtained. . . . . . . . . . : segunda-feira, 6 de abril de 2020 12:23:56
+    Lease Expires . . . . . . . . . . : terça-feira, 7 de abril de 2020 12:51:54
+    Default Gateway . . . . . . . . . : 192.168.86.1
+    DHCP Server . . . . . . . . . . . : 192.168.86.1
+    DHCPv6 IAID . . . . . . . . . . . : 285222102
+    DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-23-50-FE-F2-00-24-D6-FA-B0-B8
+    DNS Servers . . . . . . . . . . . : 192.168.86.1
+    NetBIOS over Tcpip. . . . . . . . : Enabled
+
+
+e) Execute o comando ipconfig/release *Con*. Quai foi o resultado?
+    'Fui desconectado na internet, e fiquei sem endereco de IPv4'
+
+    Wireless LAN adapter Wi-Fi:
+
+    Connection-specific DNS Suffix  . :
+    Link-local IPv6 Address . . . . . : fe80::19d8:a60f:a63:7a1e%10
+    Default Gateway . . . . . . . . . :
+
+
+f) Execute o comando ipconfig/renew. Qual foi o resultado?
+    'O Windows Recalculou o meu endereco de IPv4'
+
+    Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . : lan
+   Link-local IPv6 Address . . . . . : fe80::19d8:a60f:a63:7a1e%10
+   IPv4 Address. . . . . . . . . . . : 192.168.86.36
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.86.1
+
+
+g) Execute o comando ipconfig/displaydns. Quai foi o resultado?
+    Mostra todos os DNS conectados a maquina
+
+
+h) Execute o comando ipconfig/flushdns em seguida o comando ipconfig/displaydns. Quai foi o resultado?
+    Descarta todos os dns que nao estao mais em uso
+
+
+2. Testar a conectividade física entre dois hosts.
+
+a) Execute o comando ping seguido do endereço IP da sua estação, identificado no item anterior. Qual foi o resultado?
+    O Ping foi de 0ms pois esta conectando ela com ela mesma.
+
+
+b) Execute novamente o comando anterior acrescentando o parametro -t. Qual foi o resultado?
+    Rodou o comando de ping ate q eu o mandasse parar com Ctrl + C. O ping continua o mesmo de antes.
+
+
+c) Execute o comando ping seguido do endereço de loopback. Qual foi o resultado?
+    O Resultado permanece o mesmo, pois ainda estou pingando para a mesma maquina.
+
+
+d) Execute o comando ping seguido do endereço do gateway padrão. Qual foi o resultado? 
+    O ping variou entre 5ms e 7ms.
+
+
+e) Execute o comando ping seguido do nome da sua estação. Qual foi o resultado?
+    Ele pingou para o endereco de IPv6 da maquina com 0ms de retorno.
+
+
+f) Execute o comando ping seguido do host www.iesb.br. Qual foi o resultado?
+    O ping vairou entre 168ms e 172ms.
+
+
+g) Execute o comando ping seguido do host intranet.iesb.br. Qual foi o resultado?
+    Ping request could not find host intranet.iesb.br. Please check the name and try again.
+
+
+
+3. Resolver nomes dos hosts para achar os endereços IP.
+
+a) Execute o comando nslookup seguido do endereço IP da sua estação. Qual foi o resultado?
+    Server:  testwifi.here
+    Address:  192.168.86.1
+
+    Name:    desktop-ql1ld4d.lan
+    Address:  192.168.86.36
+
+b) Execute o comando nslookup seguido do nome da sua estação. Qual foi o resultado?
+    Server:  testwifi.here
+    Address:  192.168.86.1
+
+    *** testwifi.here can't find DESKTOP-QL1LD4D: Non-existent domain
+
+c) Execute o comando nslookup seguido do host www.iesb.br. Qual foi o resultado?
+    Server:  testwifi.here
+    Address:  192.168.86.1
+
+    Non-authoritative answer:
+    Name:    www.iesb.br
+    Address:  54.174.194.96
+
+d) Execute o comando nslookup seguido do host intranet.iesb.br. Qual foi o resultado?
+    Server:  testwifi.here
+    Address:  192.168.86.1
+
+    *** testwifi.here can't find intranet.iesb.br: Non-existent domain
+
+
+
+4. Verificar rotas entre dois hosts.
+
+a) Execute o comando tracert seguido do endereço IP da sua estação. Quantos saltos foram realizados? O destino foi alcançado?
+    1 salto. Sim alcancou.
+
+b) Execute o comando tracert seguido do endereço do gateway padrão. Quantos saltos foram realizados? O destino foi alcançado?
+    1 salto. Sim alcancou.
+
+c) Execute o comando tracert www.iesb.br para verificar o roteamento de pacotes. Qual foi o resultado? O destino foi alcançado?
+    30 saltos. Nao alcancou.
+
+d) Execute o comando tracert intranet.iesb.br. Qual foi o resultado? O destino foi alcançado?
+    Unable to resolve target system name intranet.iesb.br.
+    0 saltos. Nao alcancou.
+
+e) Execute o comando tracert helpdesk.iesb.br. Qual foi o resultado? O destino foi alcançado?
+    30 saltos. Nao alcancou.
+
+
+5. Verificar as conexões estabelecidas pelo host.
+
+a) Execute o comando netstat. Qual foi o resultado?
+    Ele mostra as conecoes TCP estabelecidas.
+
+b) Execute o comando netstat -n. Qual foi o resultado? Notou algo diferente?
+   Mostra as conecoes estabelecidas. Rodou mais rapido.
+
+c) Execute o comando netstat -na. Qual foi o resultado? Notou algo diferente?
+    Ele mostra as conecoes TCP e UDP estabelecidas.
+
+d) Execute o comando netstat -nap TCP. Qual foi o resultado? Notou algo diferente?
+    Mostrou todas as conecoes TCP estabelecidas. Todos os IPs das coneccoes.
+
+e) Execute o comando netstat -nap UDP. Qual foi o resultado? Notou algo diferente?
+    Mostrou todas as coneccoes UDP estabelecidas.
+
+f) Abra a página do IESB (www.iesb.br) no navegador. Tente identificar o socket criado através do comando netstat. Qual foi o resultado?
+    Nao consegui identificar.
